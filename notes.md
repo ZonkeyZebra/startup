@@ -1,2 +1,3 @@
 # Notes
 These are notes that can be used on midterms and the final exam. This file can be modified through the entire class. Other .md files can be added and linked here to help things be more organized.
+Here is a link to the <a href="README.md">README.md</a>.

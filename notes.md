@@ -107,7 +107,7 @@ You run a deployment script from a console window in your development environmen
 The `-k` parameter provides the credential file necessary to access your production environment. The `-h` parameter is the domain name of your production environment. The `-s` parameter represents the name of the application you are deploying (either simon or startup).
 
 **How the script works:**
-1. The first part of the script simply parses the command line parameters so that we can pass in the production environment's security key (or PEM key), the hostname of your domain, and the name of the service you are deploying.
+The first part of the script simply parses the command line parameters so that we can pass in the production environment's security key (or PEM key), the hostname of your domain, and the name of the service you are deploying.
 ```
 while getopts k:h:s: flag
 do
@@ -126,7 +126,7 @@ fi
 
 printf "\n----> Deploying $service to $hostname with $key\n"
 ```
-1. Next the script copies all of the applicable source files into a distribution directory (dist) in preparation for copying that directory to your production server.
+Next the script copies all of the applicable source files into a distribution directory (dist) in preparation for copying that directory to your production server.
 ```
 # Step 1
 printf "\n----> Build the distribution package\n"
@@ -136,7 +136,7 @@ cp -r application dist
 cp *.js dist
 cp package* dist
 ```
-1. The target directory on your production environment is deleted so that the new one can replace it. This is done by executing commands remotely using the secure shell program (`ssh`).
+The target directory on your production environment is deleted so that the new one can replace it. This is done by executing commands remotely using the secure shell program (`ssh`).
 ```
 # Step 2
 printf "\n----> Clearing out previous distribution on the target\n"
@@ -145,13 +145,13 @@ rm -rf services/${service}
 mkdir -p services/${service}
 ENDSSH
 ```
-1. The distribution directory is then copied to the production environment using the secure copy program (`scp`).
+The distribution directory is then copied to the production environment using the secure copy program (`scp`).
 ```
 # Step 3
 printf "\n----> Copy the distribution package to the target\n"
 scp -r -i $key dist/* ubuntu@$hostname:services/$service
 ```
-1. We then use `ssh` again to execute some commands on the production environment. This installs the node packages with `npm install` and restarts the service daemon (`PM2`) that runs our web application in the production environment.
+We then use `ssh` again to execute some commands on the production environment. This installs the node packages with `npm install` and restarts the service daemon (`PM2`) that runs our web application in the production environment.
 ```
 # Step 4
 printf "\n----> Deploy the service on the target\n"
@@ -161,7 +161,7 @@ npm install
 pm2 restart ${service}
 ENDSSH
 ```
-1. Finally we clean up our development environment by deleting the distribution package.
+Finally we clean up our development environment by deleting the distribution package.
 ```
 # Step 5
 printf "\n----> Removing local copy of the distribution package\n"

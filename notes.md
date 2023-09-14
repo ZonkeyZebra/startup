@@ -4,37 +4,37 @@ Here is a link to the <a href="README.md">README.md</a>.
 These are notes that can be used on midterms and the final exam. This file can be modified through the entire class. Other .md files can be added and linked here to help things be more organized.
 
 ## Git and GitHub
-Git provides two valuable functions:
+**Git provides two valuable functions:**
 - First, it allows you to track versions of files in a directory. 
 - Second, it allows you to clone all of those versions to a different location, usually to a different computer.
 
 **Helful commands:**
-- `echo` output the parameters of the command
-- `cd` change directory
-- `mkdir` make directory
-- `rmdir` remove directory
-- `rm` remove file(s)
-- `mv` move file(s)
-- `cp` copy files
-- `ls` list files
-- `curl` command line client URL browser
-- `grep` regular expression search
-- `find` find files
-- `top` view running processes
-- `df` view disk statistics
-- `cat` output file
-- `less` interactive file output
-- `wc` count words
-- `ps` view processes
-- `kill` kill a process
-- `sudo` execute as a admin
-- `ssh` remote shell
-- `scp` securely copy files to a remote computer
-- `history` show history of commands
-- `ping` test connection
-- `tracert` trace network
-- `dig` DNS info
-- `man` look in the manual to find out how a command works
+- `echo` - output the parameters of the command
+- `cd` - change directory
+- `mkdir` - make directory
+- `rmdir` - remove directory
+- `rm` - remove file(s)
+- `mv` - move file(s)
+- `cp` - copy files
+- `ls` - list files
+- `curl` - command line client URL browser
+- `grep` - regular expression search
+- `find` - find files
+- `top` - view running processes
+- `df` - view disk statistics
+- `cat` - output file
+- `less` - interactive file output
+- `wc` - count words
+- `ps` - view processes
+- `kill` - kill a process
+- `sudo` - execute as a admin
+- `ssh` - remote shell
+- `scp` - securely copy files to a remote computer
+- `history` - show history of commands
+- `ping` - test connection
+- `tracert` - trace network
+- `dig` - DNS info
+- `man` - look in the manual to find out how a command works
 ```
 git clone {repository URL}
 git commit -am "message"
@@ -50,7 +50,8 @@ git diff {HEAD HEAD~1}
 
 **Branches:**
 - Allows you to work on variations of the code while still allowing progress on the main branch.
-*** For the future, ask if images and gifs can be added to the notes.md or if it is text only. ***
+
+***For the future: ask if images and gifs can be added to the notes.md or if it is text only.***
 
 **Creating files and adding them to the repository after you've cloned from GitHub:**
 ```

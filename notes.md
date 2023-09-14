@@ -94,3 +94,76 @@ git push
 - A fork is similar to cloning a repository to your development environment, but it clones to GitHub instead.
 - Pull a fork down to your development environment to work on it.
 - A fork also allows you to create a pull request in order to push suggested changes to the original repository.
+
+## Deployment
+Try to mostly use automated or scripted deployments since it will reduce chances of accidentally delete a file, or misconfiguring something with an stray keystroke. An automated deployment process is reproducible and encourages you to iterate quickly because it is so much easier to deploy your code. You can add a small feature, deploy it out to production, and get feedback within minutes from your users.
+
+Our deployment scripts change with each new technology that we have to deploy. Initially, they just copy up a directory of HTML files, but soon they include the ability to modify the configuration of your web server, run transpiler tools, and bundle your code into a deployable package.
+
+You run a deployment script from a console window in your development environment with a command like the following:
+```
+./deployService.sh -k ~/prod.pem -h yourdomain.click -s simon
+```
+The `-k` parameter provides the credential file necessary to access your production environment. The `-h` parameter is the domain name of your production environment. The `-s` parameter represents the name of the application you are deploying (either simon or startup).
+
+**How the script works:**
+1. The first part of the script simply parses the command line parameters so that we can pass in the production environment's security key (or PEM key), the hostname of your domain, and the name of the service you are deploying.
+```
+while getopts k:h:s: flag
+do
+    case "${flag}" in
+        k) key=${OPTARG};;
+        h) hostname=${OPTARG};;
+        s) service=${OPTARG};;
+    esac
+done
+
+if [[ -z "$key" || -z "$hostname" || -z "$service" ]]; then
+    printf "\nMissing required parameter.\n"
+    printf "  syntax: deployService.sh -k <pem key file> -h <hostname> -s <service>\n\n"
+    exit 1
+fi
+
+printf "\n----> Deploying $service to $hostname with $key\n"
+```
+1. Next the script copies all of the applicable source files into a distribution directory (dist) in preparation for copying that directory to your production server.
+```
+# Step 1
+printf "\n----> Build the distribution package\n"
+rm -rf dist
+mkdir dist
+cp -r application dist
+cp *.js dist
+cp package* dist
+```
+1. The target directory on your production environment is deleted so that the new one can replace it. This is done by executing commands remotely using the secure shell program (`ssh`).
+```
+# Step 2
+printf "\n----> Clearing out previous distribution on the target\n"
+ssh -i $key ubuntu@$hostname << ENDSSH
+rm -rf services/${service}
+mkdir -p services/${service}
+ENDSSH
+```
+1. The distribution directory is then copied to the production environment using the secure copy program (`scp`).
+```
+# Step 3
+printf "\n----> Copy the distribution package to the target\n"
+scp -r -i $key dist/* ubuntu@$hostname:services/$service
+```
+1. We then use `ssh` again to execute some commands on the production environment. This installs the node packages with `npm install` and restarts the service daemon (`PM2`) that runs our web application in the production environment.
+```
+# Step 4
+printf "\n----> Deploy the service on the target\n"
+ssh -i $key ubuntu@$hostname << ENDSSH
+cd services/${service}
+npm install
+pm2 restart ${service}
+ENDSSH
+```
+1. Finally we clean up our development environment by deleting the distribution package.
+```
+# Step 5
+printf "\n----> Removing local copy of the distribution package\n"
+rm -rf dist
+```

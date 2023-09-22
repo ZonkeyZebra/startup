@@ -3,7 +3,7 @@ My start up project for my CS 260 class.
 # Pick Your Plate
 
 ### Elevator Pitch
-One of the few things humans universally love is food. But not all food is created equal. With this application you can now find out all the best places to go and grab a bite to eat! You can see and leave reviews for several different restaraunt franchises and locations!
+One of the few things humans universally love is food. But not all food is created equal. With this application you can now find out all the best places to go and grab a bite to eat! You can see what people are saying about various restaraunt franchises and locations and leave your own review and rating as well!
 ### Design
 ![Startup login image](/Images/Startup%20-%20Login.jpg)
 ![Startup image of main page](/Images/Startup%20-%20Main.jpg)

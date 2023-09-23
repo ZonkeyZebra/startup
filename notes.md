@@ -170,10 +170,12 @@ rm -rf dist
 ```
 ## HTML
 **HyperText Markup Language (HTML)**
+
 - Provides the foundational content structure that all web applications build on.
 - Originally designed to be a publishing format for web documents, or pages but has morphed the web page concept into a web application where a page now represents either a single page application (SPA) or a large group of hyperlinked pages that form a multi-page application (MPA).
 
 **Elements and Tags**
+
 HTML elements are represented with enclosing tags that may enclose other elements or text.
 
 Example:
@@ -194,9 +196,11 @@ Example:
 When we render the HTML in a browser it would look exactly the same as our original simple text example. The reason for that is that HTML is almost completely about structure.
 
 **Attributes**
+
 Attributes describe the specific details of the element. For example, the id attribute gives a unique ID to the element so that you can distinguish it from other elements. The class attribute is another common element attribute that designates the element as being classified into a named group of elements. Attributes are written inside the element tag with a name followed by an optional value. You can use either single quotes (') or double quotes (") to delimit attribute values.
 
 **Example with everything:**
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -216,6 +220,7 @@ Attributes describe the specific details of the element. For example, the id att
 `<!DOCTYPE html>` tells the browser the type and version of the document and should always be included at the top of the HTML file.
 
 **Common Elements**
+
 | element   | meaning                                                                |
 | --------- | ---------------------------------------------------------------------- |
 | `html`    | The page container                                                     |
@@ -253,6 +258,7 @@ Attributes describe the specific details of the element. For example, the id att
 | `iframe`  | Inline frame of another HTML page                                      |
 
 **Special Characters**
+
 | Character | Entity      |
 | --------- | ----------- |
 | &amp;     | `&amp;`     |
@@ -263,6 +269,7 @@ Attributes describe the specific details of the element. For example, the id att
 | &#128512; | `&#128512;` |
 
 **HTML Versions**
+
 | Year | Version | Features                                  |
 | ---- | ------- | ----------------------------------------- |
 | 1990 | HTML1   | format tags                               |
@@ -272,9 +279,11 @@ Attributes describe the specific details of the element. For example, the id att
 | 2014 | HTML5   | email, password, media, and semantic tags |
 
 **index.html**
+
 By default a web server will display the HTML file named index.html. For example, when you ask for https://google.com in your web browser you will actually get back the HTML for the file https://google.com/index.html. For this reason, it is very common to name the main HTML file for your web application index.html.
 
 **Structure**
+
 The two major purposes of HTML is to provide structure and content to your web application. The example below starts with the top level content `body`. The body has three children, a `header`, `main`, and `footer`. Each of the body children then contains other structural content.
 
 The `header` contains a `p`aragraph with a `span`, and a `nav`igation containing multiple `div`isions of sub-content.
@@ -331,6 +340,7 @@ The `footer` has a content division with a single span.
 ```
 
 **Block and Inline**
+
 There is a distinction between structure elements that are block vs inline. A block element is meant to be a distinct block in the flow of the content structure. An inline element is meant to be inline with the content flow of a block element. In other words, inline elements do not disrupt the flow of a block element's content. For example, the block element `div` (division) could have an inline element `b` in order to bring attention to a portion of its sub-text. Likewise a `p` (paragraph) element could have a `span` to mark the paragraph's sub-text as a person's name.
 
 ```
@@ -340,6 +350,7 @@ There is a distinction between structure elements that are block vs inline. A bl
 ```
 
 **Input Elements**
+
 | Element    | Meaning                          | Example                                        |
 | ---------- | -------------------------------- | ---------------------------------------------- |
 | `form`     | Input container and submission   | `<form action="form.html" method="post">`      |
@@ -415,6 +426,7 @@ Several of the input elements have validation built into them. This means that t
 You should also have validation built into your JavaScript that checks input data to ensure everything is valid before it is submitted. All of the input elements support functions for determining their validation state. Additionally, there are CSS style selectors for visualizing the validity of the input. In order to have a good user experience, it is critical that you provide sufficient user feedback early in the input process. A good design will give feedback as, or before, the user begins to input. A poor design will keep the user guessing as to why the data is not being accepted, or even if it was accepted.
 
 **Media**
+
 The HTML elements that represent media include `img`, `audio`, `video`, `svg`, and `canvas`. The `img`, `audio`, and `video` elements are all simple references to an external file, but `svg` and `canvas` both contain the code to render a visual image that can even be animated.
 
 External media:

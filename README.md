@@ -26,3 +26,15 @@ One of the few things humans universally love is food. But not all food is creat
 - `Login` - Register and login users with credentials stored in a secure database.  Users can't leave reviews unless they have been authenticated.
 - `WebSocket` - Other reviews and rating will be broadcast to other users.
 - `React` - Web page ported to use the React web framework.
+
+## HTML Deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- **HTML pages** - Four HTML page that represent the ability to login, an about page, the ability to search for restaurants to review, and see your own reviews.
+- **Links** - The login page automatically links to the seach page. There are nav links on all the pages.
+- **Text** - There is text on all the pages that are stand in for the text a user would see when looking at reviews, the login, and About page.
+- **Images** - There is a logo image for the site, and placeholder images for restaurant logos and a food picture on the About page.
+- **Login** - Input box and submit button for login.
+- **Database** - The placeholder reviews represent data stored.
+- **WebSocket** - There are updates of people reviewing places that shows up towards the bottom of the Search page, so people can see new reviews in real time.

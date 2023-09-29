@@ -34,6 +34,7 @@ For this deliverable I built out the structure of my application using HTML.
 - **HTML pages** - Four HTML page that represent the ability to login, an about page, the ability to search for restaurants to review, and see your own reviews.
 - **Links** - The login page automatically links to the seach page. There are nav links on all the pages.
 - **Text** - There is text on all the pages that are stand in for the text a user would see when looking at reviews, the login, and About page.
+- **Third-Party Calls** - Restaurants found using a search on a location have been hardcoded as a placeholder. The food picture on the about page will be randomly generated.
 - **Images** - There is a logo image for the site, and placeholder images for restaurant logos and a food picture on the About page.
 - **Login** - Input box and submit button for login.
 - **Database** - The placeholder reviews represent data stored.

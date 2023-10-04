@@ -112,3 +112,9 @@ body {
       flex: 1 100vh;
     }
   }
+
+  .about-para {
+    padding: 15px;
+    text-align: center;
+    font-size: large;
+  }

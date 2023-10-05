@@ -87,6 +87,7 @@ body {
   
   footer a {
     float: right;
+    color: white;
   }
   
   @media (max-height: 600px) {

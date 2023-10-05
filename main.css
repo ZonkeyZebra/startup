@@ -119,4 +119,13 @@ body {
     header h1 {
       display: none;
     }
+
+    .login-box {
+      display: inline;
+      margin: 50px;
+    }
+
+    .nav-item {
+      transform: translateX(-30px);
+    }
   }

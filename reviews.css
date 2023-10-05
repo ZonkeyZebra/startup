@@ -7,8 +7,24 @@
     border-radius: 5px;
     box-shadow: 0 15px 25px rgb(0,0,0,.6);
   }
+
+  .result {
+    color: white;
+  }
+
+  .result:hover {
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px white,
+                0 0 25px white,
+                0 0 50px white,
+                0 0 100px white;
+  }
+
   .restaurant {
     text-align: center;
+    font-family: sans-serif;
   }
 
   .restaurant-logo {
@@ -17,16 +33,25 @@
 
   .average-rate {
     text-align: center;
+    color: #A6ABAD;
+  }
+
+  .user-rate {
+    text-align: center;
+    color: #A6ABAD;
   }
 
   .review-text {
     text-align: center;
+
   }
 
   .location {
     text-align: center;
+    color: #A6ABAD;
   }
 
   .date {
     text-align: center;
+    color: #A6ABAD;
   }

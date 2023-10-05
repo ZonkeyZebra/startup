@@ -7,3 +7,26 @@
     border-radius: 5px;
     box-shadow: 0 15px 25px rgb(0,0,0,.6);
   }
+  .restaurant {
+    text-align: center;
+  }
+
+  .restaurant-logo {
+    text-align: center;
+  }
+
+  .average-rate {
+    text-align: center;
+  }
+
+  .review-text {
+    text-align: center;
+  }
+
+  .location {
+    text-align: center;
+  }
+
+  .date {
+    text-align: center;
+  }

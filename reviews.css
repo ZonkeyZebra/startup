@@ -13,10 +13,7 @@
   }
 
   .result:hover {
-    background: white;
-    color: black;
-    border-radius: 5px;
-    box-shadow: 0 0 5px white,
+    text-shadow: 0 0 5px white,
                 0 0 25px white,
                 0 0 50px white,
                 0 0 100px white;
@@ -54,4 +51,15 @@
   .date {
     text-align: center;
     color: #A6ABAD;
+  }
+
+  .live-review-updates {
+    margin: 25px;
+    opacity: 0.7;
+  }
+
+  .live-review-updates a {
+    color: #005427;
+    text-decoration: none;
+    font-weight: bold;
   }

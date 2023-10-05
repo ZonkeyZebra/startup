@@ -121,8 +121,10 @@ body {
     }
 
     .login-box {
-      display: inline;
-      margin: 50px;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      padding: 40px;
     }
 
     .nav-item {

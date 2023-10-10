@@ -39,3 +39,14 @@ For this deliverable I built out the structure of my application using HTML.
 - **Login** - Input box and submit button for login.
 - **Database** - The placeholder reviews represent data stored.
 - **WebSocket** - There are updates of people reviewing places that shows up towards the bottom of the Search page, so people can see new reviews in real time.
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- **Header, footer, and main content body**
+- **Navigation elements** - Got rid of underlines and made a navigation bar at the top of the screen.
+- **Responsive to window resizing** - Responsive design has been added to make the content look good on any size screen.
+- **Application elements** - Good colors and use of whitespace.
+- **Application text content** - Consistent fonts, colors, and design.
+- **Application images** - Images are placed well and look good on any screen.

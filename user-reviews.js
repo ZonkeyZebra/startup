@@ -1,8 +1,8 @@
 function loadReviews() {
     let review = [];
-    const scoresText = localStorage.getItem('review');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
+    const reviewText = localStorage.getItem('review');
+    if (reviewText) {
+      review = JSON.parse(reviewText);
     }
   
     const reviewBoxEl = document.querySelector('#review');

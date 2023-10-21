@@ -35,6 +35,14 @@ function loadReviews() {
       }
     } else {
         reviewBoxEl.innerHTML = 'You have not left any reviews yet!';
+        /*const nothingString = document.createElement('p');
+  
+        nothingString.textContent = 'You have not left any reviews yet!';
+  
+        const reviewBox = document.createElement('div');
+        reviewBox.appendChild(nothingString);
+
+        reviewBoxEl.appendChild(reviewBox);*/
     }
   }
   

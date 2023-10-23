@@ -37,6 +37,6 @@
   
   setInterval(() => {
     const userNumber = Math.floor(Math.random() * 900);
-    const chatText = document.querySelector('#live-review-updates');
-      chatText.innerHTML = `<p>User${userNumber} recently left a review!</p>`;
+    const liveText = document.querySelector('.live-review-updates');
+      liveText.innerHTML = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
   }, 5000);

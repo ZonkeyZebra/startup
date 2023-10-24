@@ -1,40 +1,31 @@
-  /*getUserName() {
-    return localStorage.getItem('userName') ?? 'Mystery player';
+  //create object review
+  //put into an array
+  function getUserName() {
+    return localStorage.getItem('userName');
   }
 
-  saveReview(review) {
+  function submitReview() {
+    console.log("Hello?");
     const userName = this.getUserName();
-    let review = [];
-    const reviewText = localStorage.getItem('review');
-    if (reviewText) {
-      review = JSON.parse(reviewText);
-    }
-    review = this.updateScores(userName, score, scores);
+    const restaurantEl = document.querySelector("#selectRestaurant");
+    //localStorage.setItem("restaurant", restaurantEl.value);
 
-    localStorage.setItem('scores', JSON.stringify(scores));
-  }
+    const ratingEl = document.querySelector("#selectRating");
+    //localStorage.setItem("rating", ratingEl.value);
 
-  updateReview(userName, score, scores) {
+    const commentEl = document.querySelector("#leaveComment");
+    //localStorage.setItem("comment", commentEl.value);
+
+    const locationEl = document.querySelector("#leaveLocation");
+    //localStorage.setItem("location", locationEl.value);
+
     const date = new Date().toLocaleDateString();
-    const newScore = { name: userName, score: score, date: date };
-
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-        found = true;
-        break;
-      }
-    }*/
-  
-  function delay(milliseconds) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, milliseconds);
-    });
+    
+    const review = [userName, restaurantEl, ratingEl, commentEl, locationEl, date];
+    console.log(review);
+    localStorage.setItem("review", review);
   }
-  
+
   setInterval(() => {
     const userNumber = Math.floor(Math.random() * 900);
     const liveText = document.querySelector('.live-review-updates');

@@ -2,6 +2,12 @@
   margin-top: 50px;
 }
 
+table {
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .review {
     font-family: sans-serif;
     color: white;

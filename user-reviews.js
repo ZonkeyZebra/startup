@@ -5,7 +5,7 @@ function loadReviews() {
       review = JSON.parse(reviewText);
     }
   
-    const reviewBoxEl = document.querySelector('#review');
+    const reviewBoxEl = document.querySelector('.your-reviews');
   
     if (review.length) {
       for (const [i, review] of review.entries()) {
@@ -34,15 +34,7 @@ function loadReviews() {
         reviewBoxEl.appendChild(reviewBox);
       }
     } else {
-        reviewBoxEl.innerHTML = 'You have not left any reviews yet!';
-        /*const nothingString = document.createElement('p');
-  
-        nothingString.textContent = 'You have not left any reviews yet!';
-  
-        const reviewBox = document.createElement('div');
-        reviewBox.appendChild(nothingString);
-
-        reviewBoxEl.appendChild(reviewBox);*/
+        reviewBoxEl.innerHTML = `<p>You have not left any reviews yet!</p>`;
     }
   }
   

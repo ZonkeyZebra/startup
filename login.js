@@ -1,5 +1,5 @@
 function login() {
     const nameEl = document.querySelector("#name");
     localStorage.setItem("userName", nameEl.value);
-    window.location.href = "search.html";
+    window.location.href = "review.html";
   }

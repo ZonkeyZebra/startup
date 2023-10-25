@@ -55,7 +55,7 @@ For this deliverable I properly styled the application into its final appearance
 
 For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
 
-- **login** - When you press enter or the login button it takes you to the review page.
-- **database** - Stores a review into local storage and allows you to see that review on relevant pages. Currently can only have one review, since it is using local storage, but this will be improved later on in the DB deliverable.
+- **Login** - When you press enter or the login button it takes you to the review page.
+- **Database** - Stores a review into local storage and allows you to see that review on relevant pages. Currently can only have one review, since it is using local storage, but this will be improved later on in the DB deliverable.
 - **WebSocket** - I used the setInterval function to periodically send out a message that a random user has left a review. This will be replaced with WebSocket messages later.
-- **application logic** - Takes data from a form and allows it to be shown on other parts of the site. Uses logic to decide whether or not that review should be shown on that page or not.
+- **Application Logic** - Takes data from a form and allows it to be shown on other parts of the site. Uses logic to decide whether or not that review should be shown on that page or not.

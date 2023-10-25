@@ -27,6 +27,7 @@
     console.log(review);
     console.log(lengthOfArray);
     localStorage.setItem("review", review);
+    document.getElementById("reviewForm").reset();
   }
 
   setInterval(() => {

@@ -1,3 +1,5 @@
+// Improvements: have more than one review, right now it is local storage that is overwritten every time. Find avg.
+
 function loadUserReviews() {
   console.log("hello?");
   // let reviews = [];

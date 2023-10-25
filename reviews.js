@@ -23,7 +23,9 @@
     const date = new Date().toLocaleDateString();
     
     const review = [userName, localStorage.getItem("restaurant"), localStorage.getItem("rating"), localStorage.getItem("comment"), localStorage.getItem("location"), date];
+    const lengthOfArray = review.length;
     console.log(review);
+    console.log(lengthOfArray);
     localStorage.setItem("review", review);
   }
 

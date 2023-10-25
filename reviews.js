@@ -1,9 +1,9 @@
-  //create object review
-  //put into an array
+  //gets a users username they logged in with
   function getUserName() {
     return localStorage.getItem('userName');
   }
 
+  //gets the values inputted from the form and saves them to local storage
   function submitReview() {
     console.log("Hello?");
     const userName = this.getUserName();
@@ -27,9 +27,11 @@
     console.log(review);
     console.log(lengthOfArray);
     localStorage.setItem("review", review);
+    //clears out the form after it's been submitted
     document.getElementById("reviewForm").reset();
   }
 
+  //simulates the live text feature
   setInterval(() => {
     const userNumber = Math.floor(Math.random() * 900);
     const liveText = document.querySelector('.live-review-updates');

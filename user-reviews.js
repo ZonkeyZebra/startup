@@ -1,21 +1,19 @@
-// Improvements: have more than one review, right now it is local storage that is overwritten every time. Find avg.
+// **For Future**: have more than one review, right now it is local storage that is overwritten every time (simulating for DB). Find avg.
 
 function loadUserReviews() {
   console.log("hello?");
-  // let reviews = [];
-  // const userReviews = localStorage.getItem('review');
-  // if (userReviews) {
-  //   reviews = JSON.parse(userReviews);
-  // }
 
+  //gets review array from local storage
   console.log(localStorage.getItem('review'));
 
+  //splits the array since it's a string so I can look at individual values in the array
   const stringReview = localStorage.getItem('review');
 
   let theUserReviews = [];
   theUserReviews = stringReview.split(",");
   console.log(theUserReviews);
 
+  //gives the user's review
   const theirReviews = document.querySelector('.your-reviews');
   theirReviews.innerHTML = `<div class="review">
   <p class="restaurant" style="text-decoration: underline;">${theUserReviews[1]}</p>

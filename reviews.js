@@ -32,8 +32,21 @@
   }
 
   //simulates the live text feature
+  // setInterval(() => {
+  //   const userNumber = Math.floor(Math.random() * 900);
+  //   const liveText = document.querySelector('.live-review-updates');
+  //     liveText.innerHTML = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
+  // }, 5000);
+  //cuts it off at less than 7 so it doesn't become to huge of a list
   setInterval(() => {
     const userNumber = Math.floor(Math.random() * 900);
     const liveText = document.querySelector('.live-review-updates');
-      liveText.innerHTML = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
+    let newInner = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
+    let newInnerSplit = newInner.split("</p>");
+    if (newInnerSplit.length < 7) {
+      liveText.innerHTML = newInner;
+    }
+    else {
+      liveText.innerHTML = newInnerSplit.slice(0,-2).map((x) => x + `</p>`).join(``);
+    }
   }, 5000);

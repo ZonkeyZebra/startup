@@ -8,20 +8,21 @@
     console.log("Hello?");
     const userName = this.getUserName();
     const restaurantEl = document.querySelector("#selectRestaurant");
-    //localStorage.setItem("restaurant", restaurantEl.value);
+    localStorage.setItem("restaurant", restaurantEl.value);
+    console.log(restaurantEl);
 
     const ratingEl = document.querySelector("#selectRating");
-    //localStorage.setItem("rating", ratingEl.value);
+    localStorage.setItem("rating", ratingEl.value);
 
     const commentEl = document.querySelector("#leaveComment");
-    //localStorage.setItem("comment", commentEl.value);
+    localStorage.setItem("comment", commentEl.value);
 
     const locationEl = document.querySelector("#leaveLocation");
-    //localStorage.setItem("location", locationEl.value);
+    localStorage.setItem("location", locationEl.value);
 
     const date = new Date().toLocaleDateString();
     
-    const review = [userName, restaurantEl, ratingEl, commentEl, locationEl, date];
+    const review = [userName, localStorage.getItem("restaurant"), localStorage.getItem("rating"), localStorage.getItem("comment"), localStorage.getItem("location"), date];
     console.log(review);
     localStorage.setItem("review", review);
   }

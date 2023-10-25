@@ -22,6 +22,13 @@ function loadRestaurantReviews() {
     <p class="date">${theRestaurantReviews[5]}</p>
     </div>`;
     }
+
+    //prints avg
+    const giveAvg = document.querySelector('#avgRate');
+    giveAvg.innerHTML = `4.5`;
   
+  }
+
+  function getAverage() {
     
   }

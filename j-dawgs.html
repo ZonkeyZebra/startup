@@ -9,9 +9,10 @@
         <link rel="stylesheet" href="main.css" />
         <!-- Include bootstrap CSS framework -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
-
+        <link rel="stylesheet" href="reviews.css"/>
+        <script src="restaurantPage.js"></script>
     </head>
-    <body>
+    <body onload="loadRestaurantReviews()">
         <header>
           <img alt="plate" width="250" class="icon" src="../Images/Plate Icon.png"/>
           <h1 class="site-title">Pick Your Plate</h1>
@@ -28,7 +29,7 @@
         </header>
     
         <main>
-            <h1 class="text-center">J-Dawgs</h1>
+            <h1 class="text-center" id="restaurantName">J-Dawgs</h1>
             <div class="table-responsive">
                 <table class="table-sm">
                     <tbody>
@@ -39,12 +40,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="review">
-                <p class="user-rate">Rating: <span class="result">3</span></p>
-                <p class="review-text">This restaurant was okay, but a little overrated from what I found.</p>
-                <p class="location">Location of review: <span class="result">SLC, Utah</span></p>
-                <p class="date">September 26, 2023</p>
-            </div>
+            <div class="restaurantReviews"></div>
         </main>
     
         <footer>

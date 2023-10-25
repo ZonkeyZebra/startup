@@ -1,3 +1,4 @@
+//simulates results from a search. Will be utitlizing an API for this in the future.
 function submit() {
     const results = document.querySelector('.results');
       results.innerHTML = `<h3>Results:</h3>

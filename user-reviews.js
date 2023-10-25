@@ -16,8 +16,7 @@ function loadUserReviews() {
 
   const theirReviews = document.querySelector('.your-reviews');
   theirReviews.innerHTML = `<div class="review">
-  <p class="restaurant">${theUserReviews[1]}</p>
-  <img class="restaurant-logo" alt="restaurant-logo" height="50" width="50" src="../Images/Restaurant-logo-placeholder.png"/>
+  <p class="restaurant" style="text-decoration: underline;">${theUserReviews[1]}</p>
   <p class="average-rate">Average Rating: <span class="result">4.5</span></p>
   <p class="user-rate">Your Rating: <span class="result">${theUserReviews[2]}</span></p>
   <p class="review-text">${theUserReviews[3]}</p>

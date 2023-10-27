@@ -593,7 +593,7 @@ The `canvas` element was introduced to HTML in order to facilitate 2D drawing an
 
 Cascading Style Sheets (CSS) converts the structure and content of HTML into a vibrant, responsive experience. The initial objective of CSS was to simply style the HTML based upon the desires of the user, developer, and browser. In modern web applications CSS styling focuses more on helping the developer create complex renderings of dynamic content that is responsive to the actions of the user and the device the application is rendered on. With CSS a web programmer can animate the page, deploy custom fonts, respond to user actions, and dynamically alter the entire layout of the page based on the size of a device and its orientation.
 
-![CSS definitions](cssDefinitions.jpg)
+![CSS definitions](Images/cssDefinitions.jpg)
 
 Functionally, CSS is primarily concerned with defining `rulesets`, or simply `rules`. A rule is comprised of a `selector` that selects the elements to apply the rule to, and one or more `declarations` that represent the `property` to style with the given `property value`.
 
@@ -671,7 +671,7 @@ In this case, the rules cascade down from the highest nodes in the DOM tree to t
 
 CSS defines everything as boxes. When you apply styles, you are applying them to a region of the display that is a rectangular box. Within an element's box there are several internal boxes. The innermost box holds the element's content. This is where things like the text or image of an element is displayed. Next comes the padding. The padding will inherit things like the background color. After padding is the border, which has properties like color, thickness and line style. The final box is the margin. The margin is considered external to the actual styling of the box and therefore only represents whitespace. It is important to understand each of these boxes so that you can achieve the desired visual result by applying the proper CSS declaration.
 
-![CSS box model](cssBoxModel.jpg)
+![CSS box model](Images/cssBoxModel.jpg)
 
 **Element Selectors**
 

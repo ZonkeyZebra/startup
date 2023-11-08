@@ -1,26 +1,30 @@
-let options = {
-    method: 'GET',
-    headers: { 'x-api-key': 'kM5BCf98Wlqmvnu8rP78Lg==YvmeShBekEHJfG4F' }
-  }
-  
-  let url = 'https://api.api-ninjas.com/v1/randomimage?category=food'
-  
-  
-  // fetch(url,options)
-  //       .then(res => res.json()) // parse response as JSON
-  //       .then(data => {
-  //         console.log(data)
-  //       })
-  //       .catch(err => {
-  //           console.log(`error ${err}`)
-  //       });
+const getFoodish = (categoryName) => {
+  let catchOfTheDay;
+  const menuDB = Object.keys(images);
 
-  fetch(url, options)
-  .then((x) => x.json())
-  .then((response) => {
-    document.querySelector("img").textContent = JSON.stringify(
-      response,
-      null,
-      "  "
+  if (categoryName === "random") {
+    const randomCategorySelector = Math.floor(Math.random() * menuDB.length);
+    const anyRandomFood = menuDB[randomCategorySelector];
+    const foodDB = images[anyRandomFood];
+    const randomSelector = Math.floor(
+      Math.random() * (Object.keys(foodDB).length - 1) + 1
     );
-  });
+    catchOfTheDay = foodDB[randomSelector];
+  } else if (categoryName === "butter-chicken") {
+    const foodDB = images.butterChicken;
+    const randomSelector = Math.floor(
+      Math.random() * (Object.keys(foodDB).length - 1) + 1
+    );
+    catchOfTheDay = foodDB[randomSelector];
+  } else if (menuDB.includes(categoryName)) {
+    const foodDB = images[categoryName];
+    const randomSelector = Math.floor(
+      Math.random() * (Object.keys(foodDB).length - 1) + 1
+    );
+    catchOfTheDay = foodDB[randomSelector];
+  } else {
+    catchOfTheDay = "";
+  }
+
+  document.getElementById("foodish").src = `https://foodish-js.netlify.app/${catchOfTheDay}`;
+};

@@ -3,6 +3,8 @@
     return localStorage.getItem('userName');
   }
 
+  let allReviews = [];
+
   //gets the values inputted from the form and saves them to local storage
   function submitReview() {
     console.log("Hello?");
@@ -27,6 +29,12 @@
     console.log(review);
     console.log(lengthOfArray);
     localStorage.setItem("review", review);
+    //
+
+    allReviews = allReviews.concat(review);
+    console.log(allReviews);
+    localStorage.setItem("allReviews", allReviews);
+
     //clears out the form after it's been submitted
     document.getElementById("reviewForm").reset();
   }

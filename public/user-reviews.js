@@ -1,4 +1,6 @@
-// **For Future**: have more than one review, right now it is local storage that is overwritten every time (simulating for DB). Find avg.
+function getUserName() {
+  return localStorage.getItem('userName');
+}
 
 function loadUserReviews() {
   console.log("hello?");
@@ -52,4 +54,39 @@ function loadUserReviews() {
   <p class="date">${theUserReviews[i+5]}</p>`;
   document.querySelector('.your-reviews').appendChild(theirReviews);
   }
+}
+
+async function loadReviews() {
+  let reviews = [];
+  try {
+    // Get the latest high scores from the service
+    const response = fetch('/api/reviews');
+    reviews = response.json();
+
+    // Save the scores in case we go offline in the future
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+  } catch {
+    // If there was an error then just use the last saved scores
+    const reviewsText = localStorage.getItem('reviews');
+    if (reviewsText) {
+      reviews = JSON.parse(reviewsText);
+    }
+  }
+
+  displayUserReviews(reviews);
+}
+
+function displayUserReviews(reviews) {
+  for (let i = 0; i < reviews.length; i = i + 6) {
+    const theirReviews = document.createElement("section");
+    theirReviews.innerHTML = `<h6>${reviews[i]}'s Reviews:</h6>
+    <div class="review">
+    <p class="restaurant" style="text-decoration: underline;">${reviews[i+1]}</p>
+    <p class="average-rate">Average Rating: <span class="result">4.5</span></p>
+    <p class="user-rate">Your Rating: <span class="result">${reviews[i+2]}</span></p>
+    <p class="review-text">${reviews[i+3]}</p>
+    <p class="location">Location of review: <span class="result">${reviews[i+4]}</span></p>
+    <p class="date">${reviews[i+5]}</p>`;
+    document.querySelector('.your-reviews').appendChild(theirReviews);
+    }
 }

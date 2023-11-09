@@ -39,6 +39,44 @@
     document.getElementById("reviewForm").reset();
   }
 
+  async function saveReview() {
+    const userName = this.getUserName();
+    const restaurantEl = document.querySelector("#selectRestaurant");
+    localStorage.setItem("restaurant", restaurantEl.value);
+    console.log(restaurantEl);
+
+    const ratingEl = document.querySelector("#selectRating");
+    localStorage.setItem("rating", ratingEl.value);
+
+    const commentEl = document.querySelector("#leaveComment");
+    localStorage.setItem("comment", commentEl.value);
+
+    const locationEl = document.querySelector("#leaveLocation");
+    localStorage.setItem("location", locationEl.value);
+
+    const date = new Date().toLocaleDateString();
+    
+    const review = [userName, localStorage.getItem("restaurant"), localStorage.getItem("rating"), localStorage.getItem("comment"), localStorage.getItem("location"), date];
+    console.log(review);
+    try {
+      const response = await fetch('/api/review', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(review),
+    });
+    console.log(response.body);
+    // Store what the service gave us
+    const reviews = await response.json();
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+  } catch {
+    // If there was an error then just track locally
+    allReviews = allReviews.concat(review);
+    localStorage.setItem("allReviews", allReviews);
+  }
+  //clears out the form after it's been submitted
+  document.getElementById("reviewForm").reset();
+  }
+
   //simulates the live text feature
   // setInterval(() => {
   //   const userNumber = Math.floor(Math.random() * 900);

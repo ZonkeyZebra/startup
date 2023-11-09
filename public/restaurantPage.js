@@ -75,6 +75,7 @@ function loadRestaurantReviews() {
   }
   
   function displayRestaurantReviews(reviews) {
+    const restaurantName = document.getElementById("restaurantName").firstChild.nodeValue;
     for (let i = 0; i < reviews.length; i = i + 6) {
       if(reviews[i+1] === restaurantName) {
         const theirReviews = document.createElement("section");

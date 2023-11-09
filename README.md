@@ -59,3 +59,13 @@ For this deliverable I implemented by JavaScript so that the application works f
 - **Database** - Stores a review into local storage and allows you to see that review on relevant pages. Currently can only have one review, since it is using local storage, but this will be improved later on in the DB deliverable.
 - **WebSocket** - I used the setInterval function to periodically send out a message that a random user has left a review. This will be replaced with WebSocket messages later.
 - **Application Logic** - Takes data from a form and allows it to be shown on other parts of the site. Uses logic to decide whether or not that review should be shown on that page or not.
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that receives reviews and returns reviews.
+
+- **Create an HTTP service using Node.js and Express** - This has been added!
+- **Frontend served up using express static middleware** - This has been added!
+- **Your frontend calls third party service endpoints** - Uses Foodish to give a random image on about page.
+- **Your backend provides service endpoints** - Endpoints for POSTing and GETing reviews.
+- **Your frontend calls your service endpoints** - Calls created endpoints for reviews.

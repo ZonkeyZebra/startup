@@ -55,11 +55,14 @@ function loadRestaurantReviews() {
   }
 
   async function loadReviews() {
-    let reviews = [];
+    let reviews = {};
+    console.log("loading reviews");
+    console.log(fetch('/api/reviews'));
     try {
       // Get the latest high scores from the service
-      const response = fetch('/api/reviews');
-      reviews = response.json();
+      const response = await fetch('/api/reviews');
+      reviews= await response.json();
+      console.log(reviews);
   
       // Save the scores in case we go offline in the future
       localStorage.setItem('reviews', JSON.stringify(reviews));
@@ -76,17 +79,28 @@ function loadRestaurantReviews() {
   
   function displayRestaurantReviews(reviews) {
     const restaurantName = document.getElementById("restaurantName").firstChild.nodeValue;
-    for (let i = 0; i < reviews.length; i = i + 6) {
-      if(reviews[i+1] === restaurantName) {
-        const theirReviews = document.createElement("section");
+    if (reviews.restaurant === restaurantName) {
+      const theirReviews = document.createElement("section");
         theirReviews.innerHTML = `<div class="review">
-          <p class="user-rate">User: <span class="result">${reviews[i]}</span></p>
-          <p class="user-rate">Rating: <span class="result">${reviews[i+2]}</span></p>
-          <p class="review-text">${reviews[i+3]}</p>
-          <p class="location">Location of review: <span class="result">${reviews[i+4]}</span></p>
-          <p class="date">${reviews[i+5]}</p>
+          <p class="user-rate">User: <span class="result">${reviews.name}</span></p>
+          <p class="user-rate">Rating: <span class="result">${reviews.rating}</span></p>
+          <p class="review-text">${reviews.comment}</p>
+          <p class="location">Location of review: <span class="result">${reviews.location}</span></p>
+          <p class="date">${reviews.date}</p>
           </div>`;
       document.querySelector('.restaurantReviews').appendChild(theirReviews);
-      }
     }
+    // for (let i = 0; i < reviews.length; i = i + 6) {
+    //   if(reviews[i+1] === restaurantName) {
+    //     const theirReviews = document.createElement("section");
+    //     theirReviews.innerHTML = `<div class="review">
+    //       <p class="user-rate">User: <span class="result">${reviews[i]}</span></p>
+    //       <p class="user-rate">Rating: <span class="result">${reviews[i+2]}</span></p>
+    //       <p class="review-text">${reviews[i+3]}</p>
+    //       <p class="location">Location of review: <span class="result">${reviews[i+4]}</span></p>
+    //       <p class="date">${reviews[i+5]}</p>
+    //       </div>`;
+    //   document.querySelector('.restaurantReviews').appendChild(theirReviews);
+    //   }
+    // }
   } 

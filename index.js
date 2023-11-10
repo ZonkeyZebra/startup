@@ -20,9 +20,12 @@ apiRouter.get('/reviews', (_req, res) => {
 });
 
 // SubmitReview
-apiRouter.post('/review', async (req, res) => {
-  // scores = updateScores(req.body, scores);
-  reviews = await allReviews(req.body, reviews);
+// apiRouter.post('/review', async (req, res) => {
+//   reviews = await allReviews(req.body, reviews);
+//   res.send(reviews);
+// });
+apiRouter.post('/review', (req, res) => {
+  reviews = req.body;
   res.send(reviews);
 });
 
@@ -35,8 +38,9 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-let reviews = [];
-async function allReviews(newReview, reviews) {
-  reviews = reviews.concat(newReview);
-  return reviews;
-}
+let reviews = {};
+// let reviews = [];
+// async function allReviews(newReview, reviews) {
+//   reviews = reviews.concat(newReview);
+//   return reviews;
+// }

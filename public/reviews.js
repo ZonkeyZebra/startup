@@ -57,16 +57,23 @@
     const date = new Date().toLocaleDateString();
     
     const review = [userName, localStorage.getItem("restaurant"), localStorage.getItem("rating"), localStorage.getItem("comment"), localStorage.getItem("location"), date];
+    const newReview = {name: userName, restaurant: restaurantEl.value, rating: ratingEl.value, comment: commentEl.value, location: locationEl.value, date: date}
     console.log(review);
+    console.log("object review");
+    console.log(newReview)
     try {
       const response = await fetch('/api/review', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify(review),
+        //body: JSON.stringify(review),
+        body: JSON.stringify(newReview),
     });
-    console.log(response.body);
+    console.log("response below");
+    console.log(response);
     // Store what the service gave us
     const reviews = await response.json();
+    console.log(reviews);
+    console.log(JSON.stringify(reviews));
     localStorage.setItem('reviews', JSON.stringify(reviews));
   } catch {
     // If there was an error then just track locally
@@ -78,11 +85,6 @@
   }
 
   //simulates the live text feature
-  // setInterval(() => {
-  //   const userNumber = Math.floor(Math.random() * 900);
-  //   const liveText = document.querySelector('.live-review-updates');
-  //     liveText.innerHTML = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
-  // }, 5000);
   //cuts it off at less than 7 so it doesn't become to huge of a list
   setInterval(() => {
     const userNumber = Math.floor(Math.random() * 900);

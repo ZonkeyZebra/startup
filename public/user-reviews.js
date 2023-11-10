@@ -87,18 +87,6 @@ async function loadReviews() {
 }
 
 function displayUserReviews(reviews) {
-  // for (let i = 0; i < reviews.length; i = i + 6) {
-  //   const theirReviews = document.createElement("section");
-  //   theirReviews.innerHTML = `<h6>${reviews[i]}'s Reviews:</h6>
-  //   <div class="review">
-  //   <p class="restaurant" style="text-decoration: underline;">${reviews[i+1]}</p>
-  //   <p class="average-rate">Average Rating: <span class="result">4.5</span></p>
-  //   <p class="user-rate">Your Rating: <span class="result">${reviews[i+2]}</span></p>
-  //   <p class="review-text">${reviews[i+3]}</p>
-  //   <p class="location">Location of review: <span class="result">${reviews[i+4]}</span></p>
-  //   <p class="date">${reviews[i+5]}</p>`;
-  //   document.querySelector('.your-reviews').appendChild(theirReviews);
-  //   }
   const currentUser = this.getUserName();
   if (reviews.name === currentUser) {
     const theirReviews = document.createElement("section");

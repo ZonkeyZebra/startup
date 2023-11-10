@@ -59,15 +59,15 @@ function loadRestaurantReviews() {
     console.log("loading reviews");
     console.log(fetch('/api/reviews'));
     try {
-      // Get the latest high scores from the service
+      // Get the latest reviews from the service
       const response = await fetch('/api/reviews');
       reviews= await response.json();
       console.log(reviews);
   
-      // Save the scores in case we go offline in the future
+      // Save the review in case we go offline in the future
       localStorage.setItem('reviews', JSON.stringify(reviews));
     } catch {
-      // If there was an error then just use the last saved scores
+      // If there was an error then just use the last saved reviews
       const reviewsText = localStorage.getItem('reviews');
       if (reviewsText) {
         reviews = JSON.parse(reviewsText);
@@ -90,17 +90,4 @@ function loadRestaurantReviews() {
           </div>`;
       document.querySelector('.restaurantReviews').appendChild(theirReviews);
     }
-    // for (let i = 0; i < reviews.length; i = i + 6) {
-    //   if(reviews[i+1] === restaurantName) {
-    //     const theirReviews = document.createElement("section");
-    //     theirReviews.innerHTML = `<div class="review">
-    //       <p class="user-rate">User: <span class="result">${reviews[i]}</span></p>
-    //       <p class="user-rate">Rating: <span class="result">${reviews[i+2]}</span></p>
-    //       <p class="review-text">${reviews[i+3]}</p>
-    //       <p class="location">Location of review: <span class="result">${reviews[i+4]}</span></p>
-    //       <p class="date">${reviews[i+5]}</p>
-    //       </div>`;
-    //   document.querySelector('.restaurantReviews').appendChild(theirReviews);
-    //   }
-    // }
   } 

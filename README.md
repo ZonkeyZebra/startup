@@ -69,3 +69,11 @@ For this deliverable I added backend endpoints that receives reviews and returns
 - **Your frontend calls third party service endpoints** - Uses Foodish to give a random image on about page.
 - **Your backend provides service endpoints** - Endpoints for POSTing and GETing reviews.
 - **Your frontend calls your service endpoints** - Calls created endpoints for reviews.
+
+## DB deliverable
+
+For this deliverable I stored reviews in the database.
+
+- **MongoDB Atlas database created** - This has been added!
+- **Endpoints for data** - My stubbed out endpoints now processes reviews and sends them to Mongo for storage.
+- **Stores data in MongoDB** - This has been added!

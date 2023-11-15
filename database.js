@@ -27,18 +27,4 @@ function getReviews() {
     return cursor.toArray();
 }
 
-// returns reviews of the user
-function getUserReviews(name) {
-    const cursor = reviewCollection.find(name);
-    return cursor;
-}
-
-// returns reviews of specific restaurant
-function getRestaurantReviews(restaurant) {
-
-}
-
-// gets rating avg for restaurant
-function getRestaurantAvg(restaurant){}
-
 module.exports = { addReview, getReviews };

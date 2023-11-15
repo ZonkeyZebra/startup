@@ -24,15 +24,17 @@
   
   function displayRestaurantReviews(reviews) {
     const restaurantName = document.getElementById("restaurantName").firstChild.nodeValue;
-    if (reviews.restaurant === restaurantName) {
-      const theirReviews = document.createElement("section");
-        theirReviews.innerHTML = `<div class="review">
-          <p class="user-rate">User: <span class="result">${reviews.name}</span></p>
-          <p class="user-rate">Rating: <span class="result">${reviews.rating}</span></p>
-          <p class="review-text">${reviews.comment}</p>
-          <p class="location">Location of review: <span class="result">${reviews.location}</span></p>
-          <p class="date">${reviews.date}</p>
-          </div>`;
-      document.querySelector('.restaurantReviews').appendChild(theirReviews);
+    for (let i = 0; i < reviews.length; i++) {
+      if (reviews[i].restaurant === restaurantName) {
+        const theirReviews = document.createElement("section");
+          theirReviews.innerHTML = `<div class="review">
+            <p class="user-rate">User: <span class="result">${reviews[i].name}</span></p>
+            <p class="user-rate">Rating: <span class="result">${reviews[i].rating}</span></p>
+            <p class="review-text">${reviews[i].comment}</p>
+            <p class="location">Location of review: <span class="result">${reviews[i].location}</span></p>
+            <p class="date">${reviews[i].date}</p>
+            </div>`;
+        document.querySelector('.restaurantReviews').appendChild(theirReviews);
+      }
     }
   } 

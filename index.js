@@ -21,12 +21,9 @@ apiRouter.get('/reviews', (_req, res) => {
 });
 
 // SubmitReview
-// apiRouter.post('/review', async (req, res) => {
-//   reviews = await allReviews(req.body, reviews);
-//   res.send(reviews);
-// });
 apiRouter.post('/review', (req, res) => {
   reviews = req.body;
+  DB.addReview(req.body);
   res.send(reviews);
 });
 
@@ -41,7 +38,3 @@ app.listen(port, () => {
 
 let reviews = {};
 // let reviews = [];
-// async function allReviews(newReview, reviews) {
-//   reviews = reviews.concat(newReview);
-//   return reviews;
-// }

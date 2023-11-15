@@ -15,9 +15,29 @@ const reviewCollection = db.collection('review');
   process.exit(1);
 });
 
+// adds a review
 async function addReview(review) {
   const result = await reviewCollection.insertOne(review);
   return result;
 }
+
+// basic get
+function getReviews() {
+    
+}
+
+// returns reviews of the user
+function getUserReviews(name) {
+    const cursor = reviewCollection.find(name);
+    return cursor;
+}
+
+// returns reviews of specific restaurant
+function getRestaurantReviews(restaurant) {
+
+}
+
+// gets rating avg for restaurant
+function getRestaurantAvg(restaurant){}
 
 module.exports = { addReview };

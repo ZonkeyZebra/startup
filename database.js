@@ -23,7 +23,8 @@ async function addReview(review) {
 
 // basic get
 function getReviews() {
-    
+    const cursor = reviewCollection.find();
+    return cursor.toArray();
 }
 
 // returns reviews of the user
@@ -40,4 +41,4 @@ function getRestaurantReviews(restaurant) {
 // gets rating avg for restaurant
 function getRestaurantAvg(restaurant){}
 
-module.exports = { addReview };
+module.exports = { addReview, getReviews };

@@ -17,6 +17,9 @@ async function loadReviews() {
     console.log(reviews);
     console.log(JSON.stringify(reviews));
     console.log(reviews.name);
+    console.log(reviews[0]);
+    console.log(reviews[0].name);
+    console.log(reviews.length);
 
     // Save the reviews in case we go offline in the future
     localStorage.setItem('reviews', JSON.stringify(reviews));
@@ -34,18 +37,19 @@ async function loadReviews() {
 
 function displayUserReviews(reviews) {
   const currentUser = this.getUserName();
-  if (reviews.name === currentUser) {
-    const theirReviews = document.createElement("section");
-    theirReviews.innerHTML = `<h6>${reviews.name}'s Reviews:</h6>
-      <div class="review">
-      <p class="restaurant" style="text-decoration: underline;">${reviews.restaurant}</p>
-      <p class="average-rate">Average Rating: <span class="result">4.5</span></p>
-      <p class="user-rate">Your Rating: <span class="result">${reviews.rating}</span></p>
-      <p class="review-text">${reviews.comment}</p>
-      <p class="location">Location of review: <span class="result">${reviews.location}</span></p>
-      <p class="date">${reviews.date}</p>`;
-    document.querySelector('.your-reviews').appendChild(theirReviews);
-    console.log("displaying reviews");
-    console.log(reviews);
+  for (let i = 0; i < reviews.length; i++) {
+    if (reviews[i].name === currentUser) {
+      const theirReviews = document.createElement("section");
+      theirReviews.innerHTML = `<h6>${reviews[i].name}'s Reviews:</h6>
+        <div class="review">
+        <p class="restaurant" style="text-decoration: underline;">${reviews[i].restaurant}</p>
+        <p class="user-rate">Your Rating: <span class="result">${reviews[i].rating}</span></p>
+        <p class="review-text">${reviews[i].comment}</p>
+        <p class="location">Location of review: <span class="result">${reviews[i].location}</span></p>
+        <p class="date">${reviews[i].date}</p>`;
+      document.querySelector('.your-reviews').appendChild(theirReviews);
+      console.log("displaying reviews");
+      console.log(reviews);
+    }
   }
 }

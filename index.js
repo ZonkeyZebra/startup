@@ -15,15 +15,18 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetReviews
-apiRouter.get('/reviews', (_req, res) => {
+// Get Reviews Basic
+apiRouter.get('/reviews', async (_req, res) => {
+  const reviews = await DB.getReviews();
+  console.log(reviews);
   res.send(reviews);
 });
 
 // SubmitReview
-apiRouter.post('/review', (req, res) => {
-  reviews = req.body;
+apiRouter.post('/review', async (req, res) => {
+  //reviews = req.body;
   DB.addReview(req.body);
+  const reviews = await DB.getReviews();
   res.send(reviews);
 });
 

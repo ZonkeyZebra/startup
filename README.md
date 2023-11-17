@@ -77,3 +77,12 @@ For this deliverable I stored reviews in the database.
 - **MongoDB Atlas database created** - This has been added!
 - **Endpoints for data** - My stubbed out endpoints now processes reviews and sends them to Mongo for storage.
 - **Stores data in MongoDB** - This has been added!
+
+## Login deliverable
+
+For this deliverable I have added user creation and authentication and store them to a database.
+
+- **User registration** - Creates a new account in the database.
+- **Existing user** - Checks to see if there is a user and allows them to login with the password they created.
+- **Use MongoDB to store credentials** - Stores both user and their reviews.
+- **Restricts functionality** - You cannot leave or see reviews until you have created an account and have logged in. This is restricted on the frontend only.

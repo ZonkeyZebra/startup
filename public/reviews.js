@@ -4,10 +4,12 @@
   }
 
   let allReviews = [];
+  const ReviewEvent = 'reviewLeft';
+  const userName = this.getUserName();
 
   //gets the values inputted from the form and saves them to local storage
   async function saveReview() {
-    const userName = this.getUserName();
+    
     const restaurantEl = document.querySelector("#selectRestaurant");
     localStorage.setItem("restaurant", restaurantEl.value);
     console.log(restaurantEl);
@@ -37,11 +39,15 @@
     });
     console.log("response below");
     console.log(response);
+    
     // Store what the service gave us
     const reviews = await response.json();
     console.log(reviews);
     console.log(JSON.stringify(reviews));
     localStorage.setItem('reviews', JSON.stringify(reviews));
+
+    // Let other user know a review has been left
+    this.broadcastEvent(userName, ReviewEvent);
   } catch {
     // If there was an error then just track locally
     allReviews = allReviews.concat(review);
@@ -53,15 +59,51 @@
 
   //simulates the live text feature
   //cuts it off at less than 7 so it doesn't become to huge of a list
-  setInterval(() => {
-    const userNumber = Math.floor(Math.random() * 900);
-    const liveText = document.querySelector('.live-review-updates');
-    let newInner = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
-    let newInnerSplit = newInner.split("</p>");
-    if (newInnerSplit.length < 7) {
-      liveText.innerHTML = newInner;
-    }
-    else {
-      liveText.innerHTML = newInnerSplit.slice(0,-2).map((x) => x + `</p>`).join(``);
-    }
-  }, 5000);
+  // setInterval(() => {
+  //   const userNumber = Math.floor(Math.random() * 900);
+  //   const liveText = document.querySelector('.live-review-updates');
+  //   let newInner = `<p>User${userNumber} recently left a review!</p>` + liveText.innerHTML;
+  //   let newInnerSplit = newInner.split("</p>");
+  //   if (newInnerSplit.length < 7) {
+  //     liveText.innerHTML = newInner;
+  //   }
+  //   else {
+  //     liveText.innerHTML = newInnerSplit.slice(0,-2).map((x) => x + `</p>`).join(``);
+  //   }
+  // }, 5000);
+
+  //actual WebSocket live updates
+  function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    this.socket.onopen = (event) => {
+      this.displayMsg('LiveUpdates', 'connected');
+    };
+    this.socket.onclose = (event) => {
+      this.displayMsg('LiveUpdates', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === ReviewEvent) {
+        this.displayMsg(msg.from, `left a review!`);
+      } else () => {
+        this.displayMsg(msg.from, `is here to review!`);
+      }
+    };
+  }
+
+  function displayMsg(from, msg) {
+    const chatText = document.querySelector('.live-review-updates');
+    chatText.innerHTML =
+      `<p>${from} ${msg}</p>` + chatText.innerHTML;
+  }
+
+  function broadcastEvent(from, type) {
+    const event = {
+      from: from,
+      type: type,
+    };
+    this.socket.send(JSON.stringify(event));
+  }
+
+  configureWebSocket();

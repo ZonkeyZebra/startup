@@ -3,6 +3,7 @@ const app = express();
 const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const { peerProxy } = require('./peerProxy.js');
 
 const authCookieName = 'token';
 
@@ -15,6 +16,12 @@ app.use(express.json());
 // Serve up the front-end static content hosting
 app.use(express.static('public'));
 
+// Use the cookie parser middleware for tracking authentication tokens
+app.use(cookieParser());
+
+// Trust headers that are forwarded from the proxy so we can determine IP addresses
+app.set('trust proxy', true);
+
 // Router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -22,7 +29,6 @@ app.use(`/api`, apiRouter);
 // Get Reviews Basic
 apiRouter.get('/reviews', async (_req, res) => {
   const reviews = await DB.getReviews();
-  console.log(reviews);
   res.send(reviews);
 });
 
@@ -39,9 +45,9 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
 
 let reviews = {};
 // let reviews = [];
@@ -119,3 +125,9 @@ function setAuthCookie(res, authToken) {
     sameSite: 'strict',
   });
 }
+
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+peerProxy(httpService);

@@ -86,3 +86,12 @@ For this deliverable I have added user creation and authentication and store the
 - **Existing user** - Checks to see if there is a user and allows them to login with the password they created.
 - **Use MongoDB to store credentials** - Stores both user and their reviews.
 - **Restricts functionality** - You cannot leave or see reviews until you have created an account and have logged in. This is restricted on the frontend only.
+
+## WebSocket deliverable
+
+For this deliverable I used webSocket to allow users to see live updates on others leaving reviews on the frontend in realtime.
+
+- **Backend listens for WebSocket connection** - This has been added!
+- **Frontend makes WebSocket connection** - This has been added!
+- **Data sent over WebSocket connection** - This has been added!
+- **WebSocket data displayed** - This has been added

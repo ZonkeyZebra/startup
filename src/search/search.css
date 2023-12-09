@@ -1,0 +1,18 @@
+a.search {
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a.search:hover {
+    background: #005427;
+    border: #005427;
+    color: white;
+    box-shadow: #005427;
+    box-shadow: 0 0 5px #005427,
+              0 0 25px #005427,
+              0 0 50px #005427,
+              0 0 100px #005427;
+}

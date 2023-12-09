@@ -1,0 +1,10 @@
+.live-review-updates {
+    margin: 25px;
+    opacity: 0.7;
+}
+
+.live-review-updates a {
+    color: #005427;
+    text-decoration: none;
+    font-weight: bold;
+}

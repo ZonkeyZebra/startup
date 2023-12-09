@@ -43,7 +43,7 @@ export function Search() {
                     <Link class="search" to="/marias">Marias</Link>
                 </p>
                 <p>
-                    <Link class="search" to="/mcdonalds">McDonald's</Link>
+                    <Link class="search" to="/mcdonalds">McDonalds</Link>
                 </p>
                 <p>
                     <Link class="search" to="/raisincaines">Rainsin' Caines</Link>

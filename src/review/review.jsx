@@ -53,7 +53,7 @@ export function Review(props) {
                     <option value="Maria's">Maria's</option>
                     <option value="McDonalds">McDonalds</option>
                     <option value="R & R BBQ">R & R BBQ</option>
-                    <option value="Raisin' Canes">Raisin' Canes</option>
+                    <option value="Raisin' Canes">Raisin' Caines</option>
                     <option value="Red 8 Bistro">Red 8 Bistro</option>
                     <option value="Subway">Subway</option>
                     <option value="Tropical Smoothie Cafe">Tropical Smoothie Cafe</option>

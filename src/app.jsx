@@ -74,7 +74,7 @@ export default function App() {
               />} exact />
                     <Route path='/review' element={<Review userName={userName} />} />
                     <Route path='/search' element={<Search />} />
-                    <Route path='/yourReviews' element={<YourReviews />} />
+                    <Route path='/yourReviews' element={<YourReviews userName={userName} />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/arbys' element={<Arbys />} />
                     <Route path='/caferio' element={<CafeRio />} />

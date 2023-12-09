@@ -40,7 +40,7 @@ export default function App() {
             <div className='body bg-light text-dark'>
                 <header>
                     <script src="https://foodish-js.netlify.app/js/images.js"></script>
-                    <img alt="plate" width="250" class="icon" src="../Images/Plate Icon.png"/>
+                    <img alt="plate" width="250" className="icon" src="../Images/Plate Icon.png"/>
                     <nav>
                         <div>Pick Your Plate</div>
                         <menu>
@@ -100,7 +100,7 @@ export default function App() {
 
                 <footer>
                     <div className='container-fluid'>
-                        <span class="text-reset">Cecily Black</span>
+                        <span className="text-reset">Cecily Black</span>
                         <a href="https://github.com/ZonkeyZebra/startup">GitHub</a>
                     </div>
                 </footer>

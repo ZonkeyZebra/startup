@@ -5,9 +5,9 @@ My start up project for my CS 260 class.
 ### Elevator Pitch
 One of the few things humans universally love is food. But not all food is created equal. With this application you can now find out all the best places to go and grab a bite to eat! You can see what people are saying about various restaraunt franchises and locations and leave your own review and rating as well!
 ### Design
-![Startup login image](/public/Images/Startup%20-%20Login.jpg)
-![Startup image of main page](/public/Images/Startup%20-%20Main.jpg)
-![Startup image of page to leave review](/public/Images/Startup%20-%20Review.jpg)
+![Startup login image](/Images/Startup%20-%20Login.jpg)
+![Startup image of main page](/Images/Startup%20-%20Main.jpg)
+![Startup image of page to leave review](/Images/Startup%20-%20Review.jpg)
 ### Key Features
 - Authentication via secure login over HTTPS.
 - Leave a rating and review on restaurants.

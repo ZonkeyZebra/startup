@@ -76,26 +76,26 @@ export default function App() {
                     <Route path='/search' element={<Search />} />
                     <Route path='/yourReviews' element={<YourReviews userName={userName} />} />
                     <Route path='/about' element={<About />} />
-                    <Route path='/arbys' element={<Arbys />} />
-                    <Route path='/caferio' element={<CafeRio />} />
-                    <Route path='/cancuncafe' element={<CancunCafe />} />
-                    <Route path='/chickfila' element={<ChickFilA />} />
-                    <Route path='/costavida' element={<CostaVida />} />
-                    <Route path='/crownburger' element={<CrownBurger />} />
-                    <Route path='/dominos' element={<Dominos />} />
-                    <Route path='/jambajuice' element={<JambaJuice />} />
-                    <Route path='/jdawgs' element={<JDawgs />} />
-                    <Route path='/jerseymikes' element={<JerseyMikes />} />
-                    <Route path='/littlecaesars' element={<LittleCaesars />} />
-                    <Route path='/marias' element={<Marias />} />
-                    <Route path='/mcdonalds' element={<McDonalds />} />
-                    <Route path='/raisincaines' element={<RaisinCaines />} />
-                    <Route path='/randrbbq' element={<RandRBBQ />} />
-                    <Route path='/red8bistro' element={<Red8Bistro />} />
-                    <Route path='/subway' element={<Subway />} />
-                    <Route path='/tropicalsmoothiecafe' element={<TropicalSmoothieCafe />} />
-                    <Route path='/wendys' element={<Wendys />} />
-                    <Route path='/zupas' element={<Zupas />} />
+                    <Route path='/arbys' element={<Arbys userName={userName} />} />
+                    <Route path='/caferio' element={<CafeRio userName={userName} />} />
+                    <Route path='/cancuncafe' element={<CancunCafe userName={userName} />} />
+                    <Route path='/chickfila' element={<ChickFilA userName={userName} />} />
+                    <Route path='/costavida' element={<CostaVida userName={userName} />} />
+                    <Route path='/crownburger' element={<CrownBurger userName={userName} />} />
+                    <Route path='/dominos' element={<Dominos userName={userName} />} />
+                    <Route path='/jambajuice' element={<JambaJuice userName={userName} />} />
+                    <Route path='/jdawgs' element={<JDawgs userName={userName} />} />
+                    <Route path='/jerseymikes' element={<JerseyMikes userName={userName} />} />
+                    <Route path='/littlecaesars' element={<LittleCaesars userName={userName} />} />
+                    <Route path='/marias' element={<Marias userName={userName} />} />
+                    <Route path='/mcdonalds' element={<McDonalds userName={userName} />} />
+                    <Route path='/raisincaines' element={<RaisinCaines userName={userName} />} />
+                    <Route path='/randrbbq' element={<RandRBBQ userName={userName} />} />
+                    <Route path='/red8bistro' element={<Red8Bistro userName={userName} />} />
+                    <Route path='/subway' element={<Subway userName={userName} />} />
+                    <Route path='/tropicalsmoothiecafe' element={<TropicalSmoothieCafe userName={userName} />} />
+                    <Route path='/wendys' element={<Wendys userName={userName} />} />
+                    <Route path='/zupas' element={<Zupas userName={userName} />} />
                 </Routes>
 
                 <footer>

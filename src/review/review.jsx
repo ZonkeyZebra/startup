@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function Review(props) {
+    const [userName, setUserName] = React.useState(props.userName);
+    const [restaurant, setRestaurant] = React.useState("");
+    const [rating, setRating] = React.useState("");
+    const [comment, setComment] = React.useState("");
+    const [location, setLocation] = React.useState("");
+    const date = new Date().toLocaleDateString();
+    const [allReviews, setAllReviews] = React.useState([]);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const newReview = {name: userName, restaurant: restaurant, rating: rating, comment: comment, location: location, date: date};
+
+        try {
+            const response = await fetch('/api/review', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(newReview),
+            });
+
+            const reviews = await response.json();
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+        }catch {
+                // If there was an error then just track locally
+                const updatedReviews = [...allReviews, newReview];
+                setAllReviews(updatedReviews);
+                localStorage.setItem("allReviews", JSON.stringify(updatedReviews));
+        }
+        //clears out the form after it's been submitted
+        document.getElementById("reviewForm").reset();
+    }
+
+
     return (
         <main className="container-fluid bg-light text-dark text-center">
             <form id="reviewForm">
-                <select class="form-select" aria-label="Default select example" id="selectRestaurant">
+                <select className="form-select" aria-label="Default select example" id="selectRestaurant" onChange={(e) => setRestaurant(e.target.value)}>
                     <option hidden value="">Restaurant</option>
                     <option value="Arby's">Arby's</option>
                     <option value="Cafe Rio">Cafe Rio</option>
@@ -28,7 +61,7 @@ export function Review(props) {
                     <option value="Zupas">Zupas</option>
                 </select>
                 <p></p>
-                <select class="form-select" aria-label="Default select example" id="selectRating">
+                <select className="form-select" aria-label="Default select example" id="selectRating" onChange={(e) => setRating(e.target.value)}>
                     <option hidden value="">Your Rating</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -37,13 +70,13 @@ export function Review(props) {
                     <option value="5">Five</option>
                 </select>
                 <p></p>
-                <textarea name="comments" rows={2} cols={30} placeholder="Comments" />
+                <textarea name="comments" rows={2} cols={30} placeholder="Comments" onChange={(e) => setComment(e.target.value)} />
                 <p></p>
-                <textarea name="comments" rows={1} cols={30} placeholder="Location" />
+                <textarea name="comments" rows={1} cols={30} placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
                 <p></p>
-                <button type="button" class="btn btn-success" onclick="saveReview()">Submit</button>
+                <button type="button" className="btn btn-success" onClick={handleSubmit}>Submit</button>
               </form>
-              <div class="live-review-updates"></div>
+              <div className="live-review-updates"></div>
         </main>
     )
 }

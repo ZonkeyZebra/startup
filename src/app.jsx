@@ -72,7 +72,7 @@ export default function App() {
                   setUserName(userName);
                 }}
               />} exact />
-                    <Route path='/review' element={<Review />} />
+                    <Route path='/review' element={<Review userName={userName} />} />
                     <Route path='/search' element={<Search />} />
                     <Route path='/yourReviews' element={<YourReviews />} />
                     <Route path='/about' element={<About />} />

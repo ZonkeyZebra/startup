@@ -1,4 +1,5 @@
 import React from "react";
+import './restaurants.css';
 
 export function CafeRio() {
     return (

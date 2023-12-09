@@ -30,9 +30,9 @@ export function YourReviews(props) {
             theirReviews.push(
                 <div className="review" key={i}>
                 <p className="restaurant">{review.restaurant}</p>
-                <p className="user-rate">{review.rating}</p>
+                <p className="user-rate">Your rating: {review.rating}</p>
                 <p className="review-text">{review.comment}</p>
-                <p className="location">{review.location}</p>
+                <p className="location">Location: {review.location}</p>
                 <p className="date">{review.date}</p>
                 </div>
             );

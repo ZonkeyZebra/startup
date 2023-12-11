@@ -10,6 +10,37 @@ export function Review(props) {
     const date = new Date().toLocaleDateString();
     const [allReviews, setAllReviews] = React.useState([]);
 
+    const [events, setEvent] = React.useState([]);
+
+    React.useEffect(() => {
+      ReviewNotifier.addHandler(handleReviewEvent);
+  
+      return () => {
+        ReviewNotifier.removeHandler(handleReviewEvent);
+      };
+    });
+  
+    function handleReviewEvent(event) {
+      setEvent([...events, event]);
+    }
+
+    function createMessageArray() {
+      const messageArray = [];
+      for (const [i, event] of events.entries()) {
+        let message = 'unknown';
+        if (event.type === ReviewEvent.Review) {
+          message = `left a review`;
+        } else if (event.type === ReviewEvent.System) {
+          message = event.value.msg;
+        }
+  
+        messageArray.push(
+            <p key={i}>{event.from} {message}</p>
+        );
+      }
+      return messageArray;
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const newReview = {name: userName, restaurant: restaurant, rating: rating, comment: comment, location: location, date: date};
@@ -77,7 +108,7 @@ export function Review(props) {
                 <p></p>
                 <button type="button" className="btn btn-success" onClick={handleSubmit}>Submit</button>
               </form>
-              <div className="live-review-updates"></div>
+              <div className="live-review-updates">{createMessageArray()}</div>
         </main>
     )
 }

@@ -95,3 +95,12 @@ For this deliverable I used webSocket to allow users to see live updates on othe
 - **Frontend makes WebSocket connection** - This has been added!
 - **Data sent over WebSocket connection** - This has been added!
 - **WebSocket data displayed** - This has been added
+
+## React deliverable
+
+For this deliverable I converted the application over to use React.
+
+- **Bundled and transpiled** - This has been added!
+- **Components** - Login, review, your reviews, about, and restaurant pages are all components.
+- **Router** - Routing between components.
+- **Hooks** - Uses of `UseState` and `UseEffects` throughout for components to function.

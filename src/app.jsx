@@ -39,8 +39,7 @@ export default function App() {
         <BrowserRouter>
             <div className='body bg-light text-dark'>
                 <header>
-                    <script src="https://foodish-js.netlify.app/js/images.js"></script>
-                    <img alt="plate" width="250" className="icon" src="../Images/Plate Icon.png"/>
+                    {/* <img alt="plate" width="250" className="icon" src="..\Images\PlateIcon.png"/> */}
                     <nav>
                         <div>Pick Your Plate</div>
                         <menu>

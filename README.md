@@ -103,4 +103,4 @@ For this deliverable I converted the application over to use React.
 - **Bundled and transpiled** - This has been added!
 - **Components** - Login, review, your reviews, about, and restaurant pages are all components.
 - **Router** - Routing between components.
-- **Hooks** - Uses of `UseState` and `UseEffects` throughout for components to function.
+- **Hooks** - Uses of `UseState` and `UseEffect` throughout for components to function.
